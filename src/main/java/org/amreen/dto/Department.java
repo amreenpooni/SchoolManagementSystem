@@ -1,5 +1,8 @@
 package org.amreen.dto;
 
+import lombok.Data;
+
+@Data
 public class Department {
     private static int nextId = 1;
 

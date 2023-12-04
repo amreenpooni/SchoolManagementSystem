@@ -1,5 +1,8 @@
 package org.amreen.dto;
 
+import lombok.Data;
+
+@Data
 public class Teacher {
     private static int nextId = 1;
 

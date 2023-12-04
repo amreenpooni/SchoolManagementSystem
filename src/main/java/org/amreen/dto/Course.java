@@ -1,7 +1,9 @@
 package org.amreen.dto;
 
-import java.util.Arrays;
+import lombok.Data;
 
+import java.util.Arrays;
+@Data
 public class Course {
     private static final int MAX_STUDENT_NUM = 5;
     private static int nextId = 1;
