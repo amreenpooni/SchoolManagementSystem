@@ -1,5 +1,7 @@
 package org.amreen.dto;
 
+import lombok.Data;
+@Data
 public class SchoolManagementSystem {
     private static final int MAX_DEPARTMENT_NUM = 5;
     private static final int MAX_STUDENT_NUM = 200;
@@ -90,6 +92,11 @@ public class SchoolManagementSystem {
      * @return The student with matching ID, null if student does not exist
      */
     public Student findStudent(String studentId) {
+        for (Student student : students) {
+            if (student.getId().equals(studentId)) {
+                return student;
+            }
+        }
         return null;
     }
 
@@ -99,6 +106,11 @@ public class SchoolManagementSystem {
      * @return The teacher with matching ID, null if teacher does not exist
      */
     public Teacher findTeacher(String teacherId) {
+        for (Teacher teacher : teachers) {
+            if (teacher.getId().equals(teacherId)) {
+                return teacher;
+            }
+        }
         return null;
     }
 
@@ -108,6 +120,11 @@ public class SchoolManagementSystem {
      * @return The department with matching ID, null if department does not exist
      */
     public Department findDepartment(String departmentId) {
+        for (Department department : departments) {
+            if (department.getId().equals(departmentId)) {
+                return department;
+            }
+        }
         return null;
     }
 
@@ -117,6 +134,11 @@ public class SchoolManagementSystem {
      * @return The course with matching ID, null if course does not exist
      */
     public Course findCourse(String courseId) {
+        for (Course course : courses) {
+            if (course.getId().equals(courseId)) {
+                return course;
+            }
+        }
         return null;
     }
 
@@ -125,7 +147,7 @@ public class SchoolManagementSystem {
      * @param teacherId The teacher's ID
      * @param courseId The course's ID
      */
-    public void assignTeacherToCourse(String teacherId, String courseId) {
+    public void modifyCourseTeacher(String teacherId, String courseId) {
 
     }
 
@@ -134,7 +156,7 @@ public class SchoolManagementSystem {
      * @param studentId Student's ID
      * @param courseId Course's ID
      */
-    public void registerCourseForStudent(String studentId, String courseId) {
+    public void registerCourse(String studentId, String courseId) {
 
     }
 }
