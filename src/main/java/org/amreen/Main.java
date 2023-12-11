@@ -12,29 +12,31 @@ public class Main {
        schoolManagementSystem.addDepartment("Media and Studio Arts");
        schoolManagementSystem.addDepartment("Psychology");
 
+       schoolManagementSystem.displayDepartment();
+
        schoolManagementSystem.addStudent("Bensamed", "Lina", "D002");
        schoolManagementSystem.addStudent("Slimani", "Maria", "D001");
        schoolManagementSystem.addStudent("Huy", "Anny", "D004");
        schoolManagementSystem.addStudent("Pooni", "Amreen", "D005");
        schoolManagementSystem.addStudent("Elaiappah", "Shagini", "D003");
 
-       System.out.println("Displaying all students:");
-       System.out.println("------------------------");
+       schoolManagementSystem.displayStudents();
 
-       schoolManagementSystem.addTeacher("Yi", "Wang", "D001");
+       schoolManagementSystem.addTeacher("Yoo", "Joonghyuk", "D001");
        schoolManagementSystem.addTeacher("Kim", "Dokja", "D002");
        schoolManagementSystem.addTeacher("Moretti", "Klein", "D005");
        schoolManagementSystem.addTeacher("Gray", "Dorian", "D004");
        schoolManagementSystem.addTeacher("Han", "Sooyoung", "D003");
 
-       System.out.println("Displaying all teachers:");
-       System.out.println("------------------------");
+       schoolManagementSystem.displayTeachers();
 
        schoolManagementSystem.addCourse("Intro to Programming", 3, "D001");
        schoolManagementSystem.addCourse("General Chemistry", 3, "D002");
        schoolManagementSystem.addCourse("Accounting", 2, "D003");
        schoolManagementSystem.addCourse("Photography", 2, "D004");
        schoolManagementSystem.addCourse("Intro to Psychology", 3, "D005");
+
+       schoolManagementSystem.displayCourses();
 
        schoolManagementSystem.modifyCourseTeacher("T001", "C001");
        schoolManagementSystem.modifyCourseTeacher("T009", "C003"); //should fail because teacher does not exist
