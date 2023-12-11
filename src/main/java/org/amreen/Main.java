@@ -49,7 +49,7 @@ public class Main {
        schoolManagementSystem.registerCourse("S001", "C003");
        schoolManagementSystem.registerCourse("S001", "C004");
        schoolManagementSystem.registerCourse("S001", "C005");
-       schoolManagementSystem.registerCourse("S002", "C006"); // course is full
+       schoolManagementSystem.registerCourse("S002", "C006");
        schoolManagementSystem.registerCourse("S003", "C006");
        schoolManagementSystem.registerCourse("S004", "C006");
        schoolManagementSystem.registerCourse("S005", "C006");

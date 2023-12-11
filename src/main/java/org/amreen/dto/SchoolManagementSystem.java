@@ -34,7 +34,7 @@ public class SchoolManagementSystem {
         Department department = findDepartment(departmentId);
         if (studentNum < MAX_STUDENT_NUM) {
             students[studentNum] = new Student(lastName, firstName, department);
-            System.out.println("Student" + students[studentNum++] + "successfully added! \n");
+            System.out.println(students[studentNum++] + "successfully added! \n");
         } else {
             System.out.println("Max student reached, add a new student failed. \n");
         }
@@ -50,7 +50,7 @@ public class SchoolManagementSystem {
         Department department = findDepartment(departmentId);
         if (teacherNum < MAX_TEACHER_NUM) {
             teachers[teacherNum] = new Teacher(lastName, firstName, department);
-            System.out.println("Teacher" + teachers[teacherNum++] + "successfully added! \n");
+            System.out.println(teachers[teacherNum++] + "successfully added! \n");
         } else {
             System.out.println("Max teacher reached, add a new teacher failed. \n");
         }
@@ -63,7 +63,7 @@ public class SchoolManagementSystem {
     public void addDepartment(String name) {
         if (departmentNum < MAX_DEPARTMENT_NUM) {
             departments[departmentNum] = new Department(name);
-            System.out.println("Department" + departments[departmentNum++] + "successfully added! \n");
+            System.out.println(departments[departmentNum++] + "successfully added! \n");
         } else {
             System.out.println("Max department reached, add a new department failed. \n");
         }
@@ -250,6 +250,8 @@ public class SchoolManagementSystem {
             System.out.printf("Student %s has already registered Course %s, register course %s for student %s " +
                     "failed. \n", studentId, courseId, courseId, studentId);
         } else {
+            student.setCourses(student.getCourses());
+            student.setCourseNum(student.getCourseNum() + 1);
             course.addStudent(student);
             System.out.print("Student register course successfully \n");
             System.out.printf("Latest student info: %s \n", student);

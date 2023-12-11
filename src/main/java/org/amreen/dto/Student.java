@@ -32,14 +32,25 @@ public class Student {
 
     @Override
     public String toString() {
+        String departmentInfo = (department != null) ? department.toString() : " ";
+
+        StringBuilder coursesInfo = new StringBuilder("[");
+        if (courses != null) {
+            for (Course course : courses) {
+                if (course != null) {
+                    coursesInfo.append(course).append(", ");
+                }
+            }
+        }
+        coursesInfo.append("]");
+
         return "Student{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", id='" + id + '\'' +
-                ", nextId=" + nextId +
+                "id='" + id + '\'' +
+                ", fname='" + firstName + '\'' +
+                ", lname='" + lastName + '\'' +
+                ", department=" + departmentInfo +
                 ", courseNum=" + courseNum +
-                ", courses=" + Arrays.toString(courses) +
-                ", department=" + department +
+                ", courses=" + coursesInfo +
                 '}';
     }
 }
