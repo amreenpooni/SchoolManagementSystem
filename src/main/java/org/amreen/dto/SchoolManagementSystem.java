@@ -144,8 +144,10 @@ public class SchoolManagementSystem {
      */
     public Student findStudent(String studentId) {
         for (Student student : students) {
-            if (student.getId().equals(studentId)) {
-                return student;
+            if (student != null) {
+                if (student.getId().equals(studentId)) {
+                    return student;
+                }
             }
         }
         return null;
@@ -158,8 +160,10 @@ public class SchoolManagementSystem {
      */
     public Teacher findTeacher(String teacherId) {
         for (Teacher teacher : teachers) {
-            if (teacher.getId().equals(teacherId)) {
-                return teacher;
+            if (teacher != null) {
+                if (teacher.getId().equals(teacherId)) {
+                    return teacher;
+                }
             }
         }
         return null;
@@ -172,8 +176,10 @@ public class SchoolManagementSystem {
      */
     public Department findDepartment(String departmentId) {
         for (Department department : departments) {
-            if (department.getId().equals(departmentId)) {
-                return department;
+            if (department != null) {
+                if (department.getId().equals(departmentId)) {
+                    return department;
+                }
             }
         }
         return null;
@@ -186,8 +192,10 @@ public class SchoolManagementSystem {
      */
     public Course findCourse(String courseId) {
         for (Course course : courses) {
-            if (course.getId().equals(courseId)) {
-                return course;
+            if (course != null) {
+                if (course.getId().equals(courseId)) {
+                    return course;
+                }
             }
         }
         return null;
@@ -221,5 +229,45 @@ public class SchoolManagementSystem {
      * @param courseId Course's ID
      */
     public void registerCourse(String studentId, String courseId) {
+        Student student = findStudent(studentId);
+        Course course = findCourse(courseId);
+        if (student == null) {
+            System.out.printf("Cannot find any student match with studentId %s, register course for student %s " +
+                    "failed. \n", studentId, studentId);
+        } if (course == null) {
+            System.out.printf("Cannot find any student match with courseId %s, register course for student %s " +
+                    "failed. \n", courseId, studentId);
+        }
+        assert student != null;
+        if (student.getCourseNum() >= 5) {
+            System.out.printf("Student %s has already registered 5 courses, register course for student %s failed." +
+                    " \n", studentId, studentId);
+        }
+        assert course != null;
+        if (course.getStudentNum() >= 5) {
+            System.out.printf("Course %s has been fully registered, register course %s for student S001 failed. " +
+                    "\n", courseId, courseId);
+        } if (registeredToCourse(course)){
+            System.out.printf("Student %s has already registered Course %s, register course %s for student %s " +
+                    "failed. \n", studentId, courseId, courseId, studentId);
+        } else {
+            System.out.print("Student register course successfully");
+            System.out.printf("Latest student info: %s \n", student );
+            System.out.printf("Latest course info: %s \n", course);
+        }
+    }
+
+    /**
+     * Checks if you are registered to a course or not
+     * @param course course
+     * @return true or false
+     */
+    public boolean registeredToCourse(Course course) {
+        for (Student student : course.getStudents()) {
+            if (student != null) {
+                return true;
+            }
+        }
+        return false;
     }
 }
