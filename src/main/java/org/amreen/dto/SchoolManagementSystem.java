@@ -231,23 +231,22 @@ public class SchoolManagementSystem {
     public void registerCourse(String studentId, String courseId) {
         Student student = findStudent(studentId);
         Course course = findCourse(courseId);
+
         if (student == null) {
             System.out.printf("Cannot find any student match with studentId %s, register course for student %s " +
                     "failed. \n", studentId, studentId);
-        } if (course == null) {
-            System.out.printf("Cannot find any student match with courseId %s, register course for student %s " +
+        } else if (course == null) {
+            System.out.printf("Cannot find any course match with courseId %s, register course for student %s " +
                     "failed. \n", courseId, studentId);
         }
-        assert student != null;
-        if (student.getCourseNum() >= 5) {
+        else if (student.getCourseNum() >= 5) {
             System.out.printf("Student %s has already registered 5 courses, register course for student %s failed." +
                     " \n", studentId, studentId);
         }
-        assert course != null;
-        if (course.getStudentNum() >= 5) {
+        else if (course.getStudentNum() >= 5) {
             System.out.printf("Course %s has been fully registered, register course %s for student S001 failed. " +
                     "\n", courseId, courseId);
-        } if (registeredToCourse(course)){
+        } else if (registeredToCourse(student, course)){
             System.out.printf("Student %s has already registered Course %s, register course %s for student %s " +
                     "failed. \n", studentId, courseId, courseId, studentId);
         } else {
@@ -256,15 +255,9 @@ public class SchoolManagementSystem {
             System.out.printf("Latest course info: %s \n", course);
         }
     }
-
-    /**
-     * Checks if you are registered to a course or not
-     * @param course course
-     * @return true or false
-     */
-    public boolean registeredToCourse(Course course) {
-        for (Student student : course.getStudents()) {
-            if (student != null) {
+    public boolean registeredToCourse(Student student, Course course) {
+        for (Course c : student.getCourses()) {
+            if (c == course) {
                 return true;
             }
         }

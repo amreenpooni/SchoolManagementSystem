@@ -27,6 +27,7 @@ public class Course {
         this.id = String.format("C%03d", nextId++);
         this.department = department;
         this.courseName = courseName;
+        this.students = new Student[MAX_STUDENT_NUM];
     }
 
     @Override

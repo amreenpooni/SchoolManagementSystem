@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Arrays;
 @Data
 public class Student {
-    private static final int MAX_COURSE_NUM = 5;
+    public static final int MAX_COURSE_NUM = 5;
     private static int nextId = 1;
 
     private String firstName;
@@ -26,6 +26,7 @@ public class Student {
         this.lastName = lastName;
         this.firstName = firstName;
         this.department = department;
+        this.courses = new Course[MAX_COURSE_NUM];
     }
 
     @Override
