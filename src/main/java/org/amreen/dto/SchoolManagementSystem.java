@@ -34,9 +34,9 @@ public class SchoolManagementSystem {
         Department department = findDepartment(departmentId);
         if (studentNum < MAX_STUDENT_NUM) {
             students[studentNum] = new Student(lastName, firstName, department);
-            System.out.println("Student" + students[studentNum++] + "successfully added!");
+            System.out.println("Student" + students[studentNum++] + "successfully added! \n");
         } else {
-            System.out.println("Max student reached, add a new student failed.");
+            System.out.println("Max student reached, add a new student failed. \n");
         }
     }
 
@@ -50,9 +50,9 @@ public class SchoolManagementSystem {
         Department department = findDepartment(departmentId);
         if (teacherNum < MAX_TEACHER_NUM) {
             teachers[teacherNum] = new Teacher(lastName, firstName, department);
-            System.out.println("Teacher" + teachers[teacherNum++] + "successfully added!");
+            System.out.println("Teacher" + teachers[teacherNum++] + "successfully added! \n");
         } else {
-            System.out.println("Max teacher reached, add a new teacher failed.");
+            System.out.println("Max teacher reached, add a new teacher failed. \n");
         }
     }
 
@@ -63,9 +63,9 @@ public class SchoolManagementSystem {
     public void addDepartment(String name) {
         if (departmentNum < MAX_DEPARTMENT_NUM) {
             departments[departmentNum] = new Department(name);
-            System.out.println("Department" + departments[departmentNum++] + "successfully added!");
+            System.out.println("Department" + departments[departmentNum++] + "successfully added! \n");
         } else {
-            System.out.println("Max department reached, add a new department failed.");
+            System.out.println("Max department reached, add a new department failed. \n");
         }
     }
 
@@ -79,9 +79,9 @@ public class SchoolManagementSystem {
         Department department = findDepartment(departmentId);
         if (courseNum < MAX_COURSE_NUM) {
             courses[courseNum] = new Course(credit, department, courseName);
-            System.out.println("Course" + courses[courseNum++] + "successfully added!");
+            System.out.println("Course" + courses[courseNum++] + "successfully added! \n");
         } else {
-            System.out.println("Max course reached, add a new course failed.");
+            System.out.println("Max course reached, add a new course failed. \n");
         }
     }
 
@@ -210,17 +210,17 @@ public class SchoolManagementSystem {
         Teacher teacher = findTeacher(teacherId);
         Course course = findCourse(courseId);
         if (teacher == null) {
-            System.out.printf("Cannot find any teacher match with teacherId %s, modify teacher for course %s failed.",
+            System.out.printf("Cannot find any teacher match with teacherId %s, modify teacher for course %s failed. \n",
                     teacherId, courseId);
             return;
         }
         if (course == null) {
-            System.out.printf("Cannot find any course match with courseId %s, modify teacher for course %s failed.",
+            System.out.printf("Cannot find any course match with courseId %s, modify teacher for course %s failed. \n",
                     courseId, courseId);
             return;
         }
         course.setTeacher(teacher);
-        System.out.printf("%s teacher info updated successfully.", course);
+        System.out.printf("%s teacher info updated successfully. \n", course);
     }
 
     /**
@@ -250,16 +250,25 @@ public class SchoolManagementSystem {
             System.out.printf("Student %s has already registered Course %s, register course %s for student %s " +
                     "failed. \n", studentId, courseId, courseId, studentId);
         } else {
-            System.out.print("Student register course successfully");
-            System.out.printf("Latest student info: %s \n", student );
+            course.addStudent(student);
+            System.out.print("Student register course successfully \n");
+            System.out.printf("Latest student info: %s \n", student);
             System.out.printf("Latest course info: %s \n", course);
         }
     }
+
+    /**
+     * Checks if student is registered to the course
+     * @param student student
+     * @param course course
+     * @return true or false
+     */
     public boolean registeredToCourse(Student student, Course course) {
-        for (Course c : student.getCourses()) {
-            if (c == course) {
-                return true;
-            }
+        int courseNum = getCourseNum();
+        if (courseNum < 5) {
+            student.getCourses()[courseNum] = course;
+            setCourseNum(courseNum + 1);
+            return true;
         }
         return false;
     }

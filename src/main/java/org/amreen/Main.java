@@ -53,6 +53,7 @@ public class Main {
        schoolManagementSystem.registerCourse("S003", "C006");
        schoolManagementSystem.registerCourse("S004", "C006");
        schoolManagementSystem.registerCourse("S005", "C006");
+       schoolManagementSystem.registerCourse("S001", "C002");
 
 
 

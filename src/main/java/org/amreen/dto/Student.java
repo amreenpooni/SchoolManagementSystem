@@ -27,6 +27,7 @@ public class Student {
         this.firstName = firstName;
         this.department = department;
         this.courses = new Course[MAX_COURSE_NUM];
+        this.courseNum = 0;
     }
 
     @Override
