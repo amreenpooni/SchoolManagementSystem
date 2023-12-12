@@ -31,8 +31,8 @@ public class SchoolManagementSystem {
 
     /**
      * Add a student based on their name and the name of their department
-     * @param lastName Last name of student
-     * @param firstName First name of student
+     * @param lastName     Last name of student
+     * @param firstName    First name of student
      * @param departmentId Id of the department of the student
      */
     public void addStudent(String lastName, String firstName, String departmentId) {
@@ -47,8 +47,8 @@ public class SchoolManagementSystem {
 
     /**
      * Add a teacher based on their name and the name of their department
-     * @param lastName Last name of teacher
-     * @param firstName First name of teacher
+     * @param lastName     Last name of teacher
+     * @param firstName    First name of teacher
      * @param departmentId Id of the department of the teacher
      */
     public void addTeacher(String lastName, String firstName, String departmentId) {
@@ -76,8 +76,8 @@ public class SchoolManagementSystem {
 
     /**
      * Add a course
-     * @param courseName Name of the course
-     * @param credit Credit of the course
+     * @param courseName   Name of the course
+     * @param credit       Credit of the course
      * @param departmentId Id of the department of the course
      */
     public void addCourse(String courseName, double credit, String departmentId) {
@@ -209,7 +209,7 @@ public class SchoolManagementSystem {
     /**
      * Assign a teacher to a specific course
      * @param teacherId The teacher's ID
-     * @param courseId The course's ID
+     * @param courseId  The course's ID
      */
     public void modifyCourseTeacher(String teacherId, String courseId) {
         Teacher teacher = findTeacher(teacherId);
@@ -231,7 +231,7 @@ public class SchoolManagementSystem {
     /**
      * Register a student to a course
      * @param studentId Student's ID
-     * @param courseId Course's ID
+     * @param courseId  Course's ID
      */
     public void registerCourse(String studentId, String courseId) {
         Student student = findStudent(studentId);
@@ -243,15 +243,13 @@ public class SchoolManagementSystem {
         } else if (course == null) {
             System.out.printf("Cannot find any course match with courseId %s, register course for student %s " +
                     "failed. \n", courseId, studentId);
-        }
-        else if (student.getCourseNum() >= 5) {
+        } else if (student.getCourseNum() >= 5) {
             System.out.printf("Student %s has already registered 5 courses, register course for student %s failed." +
                     " \n", studentId, studentId);
-        }
-        else if (course.getStudentNum() >= 5) {
+        } else if (course.getStudentNum() >= 5) {
             System.out.printf("Course %s has been fully registered, register course %s for student %s failed. " +
                     "\n", courseId, courseId, studentId);
-        } else if (registeredToCourse(student, course)){
+        } else if (registeredToCourse(student, course)) {
             System.out.printf("Student %s has already registered Course %s, register course %s for student %s " +
                     "failed. \n", studentId, courseId, courseId, studentId);
         } else {
@@ -266,7 +264,7 @@ public class SchoolManagementSystem {
     /**
      * Checks if student is registered to the course
      * @param student Student
-     * @param course Course
+     * @param course  Course
      * @return True or false
      */
     private boolean registeredToCourse(Student student, Course course) {

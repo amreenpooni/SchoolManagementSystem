@@ -17,8 +17,8 @@ public class Teacher {
 
     /**
      * Teacher info
-     * @param lastName Last name of teacher
-     * @param firstName First name of teacher
+     * @param lastName   Last name of teacher
+     * @param firstName  First name of teacher
      * @param department Teacher's department
      */
     public Teacher(String lastName, String firstName, Department department) {

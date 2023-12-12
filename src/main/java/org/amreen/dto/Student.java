@@ -20,8 +20,8 @@ public class Student {
 
     /**
      * Student info
-     * @param lastName Last name of the student
-     * @param firstName First name of the student
+     * @param lastName   Last name of the student
+     * @param firstName  First name of the student
      * @param department Department of the student
      */
     public Student(String lastName, String firstName, Department department) {

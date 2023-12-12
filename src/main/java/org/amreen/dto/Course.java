@@ -21,7 +21,7 @@ public class Course {
 
     /**
      * Course info
-     * @param credit Credits of course
+     * @param credit     Credits of course
      * @param department Department of the course
      * @param courseName The course's name
      */
@@ -35,7 +35,7 @@ public class Course {
 
     /**
      * Adds student to course
-     * @param student student name
+     * @param student Student name
      */
     public void addStudent(Student student) {
         students[studentNum++] = student;
