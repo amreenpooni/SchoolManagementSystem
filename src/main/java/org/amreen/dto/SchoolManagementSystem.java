@@ -1,6 +1,11 @@
 package org.amreen.dto;
 
 import lombok.Data;
+
+/**
+ * @author Amreen Kaur Pooni
+ * School Management System class
+ */
 @Data
 public class SchoolManagementSystem {
     private static final int MAX_DEPARTMENT_NUM = 5;
@@ -244,14 +249,13 @@ public class SchoolManagementSystem {
                     " \n", studentId, studentId);
         }
         else if (course.getStudentNum() >= 5) {
-            System.out.printf("Course %s has been fully registered, register course %s for student S001 failed. " +
-                    "\n", courseId, courseId);
+            System.out.printf("Course %s has been fully registered, register course %s for student %s failed. " +
+                    "\n", courseId, courseId, studentId);
         } else if (registeredToCourse(student, course)){
             System.out.printf("Student %s has already registered Course %s, register course %s for student %s " +
                     "failed. \n", studentId, courseId, courseId, studentId);
         } else {
-            student.setCourses(student.getCourses());
-            student.setCourseNum(student.getCourseNum() + 1);
+            student.addCourse(course);
             course.addStudent(student);
             System.out.print("Student register course successfully \n");
             System.out.printf("Latest student info: %s \n", student);
@@ -261,16 +265,15 @@ public class SchoolManagementSystem {
 
     /**
      * Checks if student is registered to the course
-     * @param student student
-     * @param course course
-     * @return true or false
+     * @param student Student
+     * @param course Course
+     * @return True or false
      */
-    public boolean registeredToCourse(Student student, Course course) {
-        int courseNum = getCourseNum();
-        if (courseNum < 5) {
-            student.getCourses()[courseNum] = course;
-            setCourseNum(courseNum + 1);
-            return true;
+    private boolean registeredToCourse(Student student, Course course) {
+        for (Student registeredStudent : course.getStudents()) {
+            if (registeredStudent != null && registeredStudent.equals(student)) {
+                return true;
+            }
         }
         return false;
     }
