@@ -2,7 +2,10 @@ package org.amreen.dto;
 
 import lombok.Data;
 
-import java.util.Arrays;
+/**
+ * @author Amreen Kaur Pooni
+ * Course class
+ */
 @Data
 public class Course {
     private static final int MAX_STUDENT_NUM = 5;
@@ -17,7 +20,7 @@ public class Course {
     private Teacher teacher;
 
     /**
-     *
+     * Course info
      * @param credit Credits of course
      * @param department Department of the course
      * @param courseName The course's name
@@ -30,10 +33,18 @@ public class Course {
         this.department = department;
     }
 
+    /**
+     * Adds student to course
+     * @param student student name
+     */
     public void addStudent(Student student) {
         students[studentNum++] = student;
     }
 
+    /**
+     * Changes to string and ignores null
+     * @return Modified string
+     */
     @Override
     public String toString() {
         String teacherInfo = (teacher != null) ? teacher.toString() : " ";

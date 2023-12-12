@@ -2,6 +2,10 @@ package org.amreen.dto;
 
 import lombok.Data;
 
+/**
+ * @author Amreen Kaur Pooni
+ * Teacher class
+ */
 @Data
 public class Teacher {
     private static int nextId = 1;
@@ -12,7 +16,7 @@ public class Teacher {
     private Department department;
 
     /**
-     *
+     * Teacher info
      * @param lastName Last name of teacher
      * @param firstName First name of teacher
      * @param department Teacher's department
@@ -24,6 +28,10 @@ public class Teacher {
         this.department = department;
     }
 
+    /**
+     * Changes to string
+     * @return Modified string
+     */
     @Override
     public String toString() {
         return "Teacher{" +
